@@ -1,0 +1,74 @@
+/* Estilos base para la barra de navegación */
+.navbar {
+    background-color: #0056b3; /* Azul oscuro */
+    color: #13070A; /* Color principal de los textos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #13070A; /* Color del texto principal */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    color: #f7c13e; /* Amarillo destacado */
+  }
+  
+  /* Botón de toggler (menú hamburguesa) */
+  .navbar-toggler {
+    border: none;
+    background-color: white;
+    color: #0056b3;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280,0,0,0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    filter: invert(1); /* Cambia a blanco para mayor visibilidad */
+  }
+  
+  /* Estilo de los enlaces del menú */
+  .navbar-nav .nav-link {
+    color: #13070A; /* Color principal del texto */
+    font-size: 1rem;
+    margin-right: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #f7c13e; /* Amarillo destacado */
+  }
+  
+  .navbar-nav .nav-item:last-child .nav-link {
+    margin-right: 0;
+  }
+  
+  /* Responsive */
+  .collapse.navbar-collapse {
+    justify-content: flex-end; /* Alinea el menú a la derecha */
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #0056b3;
+      padding: 1rem;
+    }
+  
+    .navbar-nav .nav-link {
+      margin-bottom: 0.5rem;
+      margin-right: 0;
+    }
+  
+    .navbar-nav .nav-link:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
