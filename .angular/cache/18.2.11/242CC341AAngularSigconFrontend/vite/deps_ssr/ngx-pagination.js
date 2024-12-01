@@ -4,7 +4,7 @@ import {
   DecimalPipe,
   NgForOf,
   NgIf
-} from "./chunk-SSRY6LPA.js";
+} from "./chunk-Y243YYCR.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -45,7 +45,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2
-} from "./chunk-CEPGADB3.js";
+} from "./chunk-EPDCWPWL.js";
 import "./chunk-NQ4HTGF6.js";
 
 // node_modules/ngx-pagination/fesm2015/ngx-pagination.mjs
