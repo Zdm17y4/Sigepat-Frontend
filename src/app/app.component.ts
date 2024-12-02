@@ -7,7 +7,7 @@ import { MostrarHotelesComponent } from "./component/mostrar-hoteles/mostrar-hot
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, MostrarHotelesComponent],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

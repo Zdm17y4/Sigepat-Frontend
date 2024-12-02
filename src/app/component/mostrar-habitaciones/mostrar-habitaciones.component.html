@@ -1,1 +1,44 @@
-<p>mostrar-habitaciones works!</p>
+<div class="container">
+    <div class="row">
+        <!-- Cabecera de Habitaciones -->
+        <h1>{{ title }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <!-- Mostrar un mensaje si no hay habitaciones -->
+                    <div *ngIf="habitacionArray.length === 0 && hotelSeleccionado">
+                        <p>No se encontraron habitaciones para el hotel: {{ hotelSeleccionado.nombre }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Detalle de Habitaciones -->
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Hotel</th>
+                                <th scope="col">Tipo de Habitación</th>
+                                <th scope="col">Precio por Día</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let habitacion of habitacionArray | paginate: {itemsPerPage:10, currentPage:page}; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{habitacion.hotel.nombre}}</td> <!-- Mostrar nombre del hotel -->
+                                <td>{{habitacion.tipoHabitacion}}</td>
+                                <td>{{habitacion.precioDia | currency:'PEN':true}}</td> <!-- Mostrar precio con formato de moneda -->
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="page=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
