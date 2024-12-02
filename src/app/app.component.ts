@@ -12,5 +12,5 @@ import { MostrarHotelesComponent } from "./component/mostrar-hoteles/mostrar-hot
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'PERU TOURS';
+  title = 'PERU TOURS ';
 }
