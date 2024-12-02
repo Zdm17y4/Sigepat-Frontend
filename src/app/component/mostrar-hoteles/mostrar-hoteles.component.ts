@@ -32,7 +32,7 @@ export class MostrarHotelesComponent {
   ngOnInit(): void {
 
     this.loadDatos();
-    //this.getHoteles();
+    this.ciudadBusqueda.setValue(this.destino);
     this.getHotelesPorCiudad();
   }
 
@@ -59,12 +59,12 @@ export class MostrarHotelesComponent {
     }
   }
 
-  getHoteles(): void {
-    this.hotelService.getHoteles().subscribe((result: any) => {
-      //.log('Result', result);
-      this.hotelArray = result;
-    })
-  }
+  // getHoteles(): void {
+  //   this.hotelService.getHoteles().subscribe((result: any) => {
+  //     //.log('Result', result);
+  //     this.hotelArray = result;
+  //   })
+  // }
 
   // Obtener hoteles por ciudad cuando cambia el campo de búsqueda
   getHotelesPorCiudad(): void {
@@ -77,6 +77,17 @@ export class MostrarHotelesComponent {
       // Si el campo está vacío, no hacer nada y mostrar un mensaje o dejar la lista vacía
       this.hotelArray = []; // Limpiar la lista de hoteles
     }
+  }
+
+  // Método para elegir un hotel y guardarlo en sessionStorage
+  elegirHotel(hotel: IHotelResponse): void {
+    // Guardar los datos del hotel seleccionado en sessionStorage
+    sessionStorage.setItem('hotelSeleccionado', JSON.stringify(hotel));
+
+    // Mostrar mensaje en consola para verificar
+    console.log('Hotel seleccionado:', hotel);
+    console.log('Datos guardados en sessionStorage:', sessionStorage.getItem('hotelSeleccionado'));
+    window.location.href = '/mostrar-habitaciones';
   }
 
 }

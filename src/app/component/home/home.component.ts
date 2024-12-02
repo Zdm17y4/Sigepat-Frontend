@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  onBuscar(): void {
+    // Redirigir a la página de mostrar-hoteles
+    window.location.href = '/paquetes';
+  }
 }
