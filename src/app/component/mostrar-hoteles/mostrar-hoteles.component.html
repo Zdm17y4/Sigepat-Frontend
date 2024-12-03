@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <!-- Hotel cabecera -->
+        <h1>{{ title }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <!-- Mostrar un mensaje si no hay hoteles -->
+                    <div *ngIf="hotelArray.length === 0 && ciudadBusqueda.value">
+                        <p>No se encontraron hoteles para la ciudad con ID: {{ ciudadBusqueda.value }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Hotel detalle -->
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"># </th>
+                                <th scope="col">Hotel</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Clasificación</th>
+                                <th scope="col">Individuales</th>
+                                <th scope="col">Dobles</th>
+                                <th scope="col">Ciudad</th>
+                                <th scope="col">Cancelable</th>
+                                <th scope="col">Modificable</th>
+                                <th scope="col">Acción</th>  <!-- Nueva columna para el botón -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let hotel of hotelArray | paginate: {itemsPerPage:10, currentPage:page}; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{hotel.nombre}}</td>
+                                <td>{{hotel.direccion}}</td>
+                                <td>{{hotel.clasificacion}}</td>
+                                <td>{{hotel.habitIndDisponibles}}</td>
+                                <td>{{hotel.habitDobDisponibles}}</td>
+                                <td>{{hotel.ciudad}}</td>
+                                <td>{{hotel.cancelable}}</td>
+                                <td>{{hotel.modificable}}</td>
+                                <td>
+                                    <!-- Botón Elegir -->
+                                    <button class="btn btn-primary" (click)="elegirHotel(hotel)">Elegir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="page=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

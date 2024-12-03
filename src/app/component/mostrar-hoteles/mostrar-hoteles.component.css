@@ -1,0 +1,12 @@
+/* Mostrar una fila seleccionada con un color de fondo destacado */
+.selected {
+    background-color: #f0f8ff; /* Azul claro o el color que prefieras */
+    cursor: pointer; /* Cambiar el cursor para indicar que es seleccionable */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Efecto de sombra para dar más énfasis */
+  }
+  
+  /* Puedes agregar una transición suave para que el cambio sea más notorio */
+  tr {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
