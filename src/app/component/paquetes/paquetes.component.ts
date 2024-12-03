@@ -1,24 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
 import { CiudadService } from '../../service/ciudad.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ICiudad } from '../../model/ciudad';
+=======
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
 
 @Component({
   selector: 'app-paquetes',
   templateUrl: './paquetes.component.html',
+<<<<<<< HEAD
   standalone: true,  // Esto hace que el componente sea independiente
   imports: [ReactiveFormsModule, CommonModule],  // Añadir ReactiveFormsModule aquí
+=======
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
   styleUrls: ['./paquetes.component.css'],
 })
 export class PaquetesComponent implements OnInit {
   paquetesForm: FormGroup;
+<<<<<<< HEAD
   ciudades: ICiudad[] = []
   errorMessage: string = ''
 
   constructor(private formBuilder: FormBuilder, private ciudadService: CiudadService) {
 
+=======
+
+  constructor(private formBuilder: FormBuilder) {
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
     this.paquetesForm = this.formBuilder.group({
       origen: ['', Validators.required],
       destino: ['', Validators.required],
@@ -30,6 +41,7 @@ export class PaquetesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+<<<<<<< HEAD
 
     // Cargar las ciudades al iniciar el componente
     this.loadCiudades();
@@ -70,5 +82,8 @@ export class PaquetesComponent implements OnInit {
       // Redirigir a la página de mostrar-hoteles
       window.location.href = '/mostrar-hoteles';
     }
+=======
+    // Lógica adicional al inicializar
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
   }
 }

@@ -7,7 +7,10 @@
 /bazel-out
 
 # Node
+<<<<<<< HEAD
 /node_modules
+=======
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
 npm-debug.log
 yarn-error.log
 
@@ -29,7 +32,10 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
+<<<<<<< HEAD
 /.angular\cache
+=======
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
 .sass-cache/
 /connect.lock
 /coverage

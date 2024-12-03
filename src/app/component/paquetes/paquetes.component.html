@@ -3,35 +3,77 @@
     <div class="tab-selector">
         <button class="tab active">Vuelo + Alojamiento</button>
     </div>
+<<<<<<< HEAD
     <form [formGroup]="paquetesForm" class="form">
         <div class="form-group">
             <label for="origen">Origen</label>
             <select id="origen" formControlName="origen" class="custom-combobox">
                 <option value="" disabled selected>Seleccione un lugar de origen</option>
                 <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ ciudad.nombre }}</option>
+=======
+    <form class="form">
+        <div class="form-group">
+            <label for="origen">Origen</label>
+            <select id="origen" name="origen" class="custom-combobox">
+                <option value="" disabled selected>Seleccione una lugar de origen</option>
+                <option value="Lima">Lima</option>
+                <option value="Cusco">Cusco</option>
+                <option value="Arequipa">Arequipa</option>
+                <option value="Piura">Piura</option>
+                <option value="Trujillo">Trujillo</option>
+                <option value="Cajamarca">Cajamarca</option>
+                <option value="Jauja">Jauja</option>
+                <option value="Pucallpa">Pucallpa</option>
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
             </select>
         </div>
         <div class="form-group">
             <label for="destino">Destino</label>
+<<<<<<< HEAD
             <select id="destino" formControlName="destino" class="custom-combobox">
                 <option value="" disabled selected>Seleccione un lugar de destino</option>
                 <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ ciudad.nombre }}</option>
+=======
+            <select id="origen" name="origen" class="custom-combobox">
+                <option value="" disabled selected>Seleccione una lugar de destino</option>
+                <option value="Lima">Lima</option>
+                <option value="Cusco">Cusco</option>
+                <option value="Arequipa">Arequipa</option>
+                <option value="Piura">Piura</option>
+                <option value="Trujillo">Trujillo</option>
+                <option value="Cajamarca">Cajamarca</option>
+                <option value="Jauja">Jauja</option>
+                <option value="Pucallpa">Pucallpa</option>
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
             </select>
         </div>
         <div class="form-group dates">
             <label for="fecha-ida">Fechas</label>
             <div>
+<<<<<<< HEAD
                 <input type="date" id="fecha-ida" formControlName="fechaIda" placeholder="Ida">
                 <input type="date" id="fecha-vuelta" formControlName="fechaVuelta" placeholder="Vuelta">
+=======
+                <input type="date" id="fecha-ida" name="fecha-ida" placeholder="Ida">
+                <input type="date" id="fecha-vuelta" name="fecha-vuelta" placeholder="Vuelta">
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
             </div>
         </div>
         <div class="form-group rooms">
             <label for="habitaciones">Habitaciones</label>
             <div>
+<<<<<<< HEAD
                 <input type="number" id="habitaciones" formControlName="habitaciones" placeholder="Número de habitaciones">
                 <input type="number" id="pasajeros" formControlName="pasajeros" placeholder="Número de pasajeros">
             </div>
         </div>
         <button type="button" (click)="onBuscar()" class="search-button">Buscar</button>
+=======
+                <input type="number" id="habitaciones" name="habitaciones" placeholder="Número de habitaciones">
+                <input type="number" id="pasajeros" name="pasajeros" placeholder="Número de pasajeros">
+            </div>
+        </div>
+        <button type="submit" class="search-button">Buscar</button>
+>>>>>>> 080204e4518ebf483424d551e3ac855c90bea19d
     </form>
 </div>
