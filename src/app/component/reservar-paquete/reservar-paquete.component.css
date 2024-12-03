@@ -7,3 +7,46 @@
     font-size: 25px;
     cursor: pointer;
 }
+
+.card-img-top {
+    width: 100%;        /* Ancho al 100% del contenedor (tarjeta) */
+    height: 200px;      /* Alto fijo para todas las imágenes */
+    object-fit: cover;  /* Hace que la imagen cubra el área especificada sin deformarse */
+  }
+  
+
+  /* Estilos para las tarjetas */
+.card-group {
+    margin-top: 20px;
+    gap: 20px; /* Espacio entre las tarjetas */
+  }
+  
+  /* Sombra y bordes suaves para cada tarjeta */
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Para evitar que las imágenes se salgan del borde */
+  }
+  
+  /* Centrado del título */
+  .card-title {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Mejorar el espaciado en las listas */
+  .list-group-item {
+    padding: 10px 15px;
+  }
+  
+  /* Sombras para los elementos dentro de las tarjetas */
+  .card-body {
+    padding: 15px;
+    background-color: #f8f9fa;  /* Fondo suave para el cuerpo de las tarjetas */
+  }
+  
+  /* Agregar un espacio entre la card-group y el botón */
+  .card-group .card + .card {
+    margin-top: 20px;
+  }
+  

@@ -10,6 +10,7 @@ import { IAlojamientoResponse } from '../../model/alojamiento-response';
 import { PaqueteTuristicoService } from '../../service/paquete-turistico.service';
 import { IPaqueteTuristicoRequest } from '../../model/paquete-turistico-request';
 import { IPaqueteTuristicoResponse } from '../../model/paquete-turistico-response';
+import bootstrap from '../../../main.server';
 
 @Component({
   selector: 'app-reservar-paquete',
@@ -33,6 +34,7 @@ export class ReservarPaqueteComponent {
   alojamientoRegistrado: IAlojamientoResponse | null = null;
   vueloSeleccionado: IVueloResponse | null = null;
   idHotel: number | null = 0;
+  paqueteTuristicoRegistrado: IPaqueteTuristicoResponse | null = null;
 
   // Diccionario de imágenes por ciudad
   ciudadImagenes: { [key: string]: string } = {
@@ -66,7 +68,9 @@ export class ReservarPaqueteComponent {
     17: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/a9/1f/26/facade.jpg?w=600&h=-1&s=1",
   };
 
-  constructor(private paqueteService: PaqueteTuristicoService) {}
+  totalPrecioPaquete: number = 0;
+
+  constructor(private paqueteService: PaqueteTuristicoService) { }
 
   ngOnInit(): void {
     this.loadDatos();
@@ -91,7 +95,7 @@ export class ReservarPaqueteComponent {
           this.getImagenHotel(this.idHotel);
           console.log("idHotel obtenido desde alojamiento", this.idHotel);
         }
-        
+
       } catch (error) {
         console.error('Error al parsear el alojamiento:', error);
       }
@@ -122,12 +126,17 @@ export class ReservarPaqueteComponent {
     console.log('Destino:', this.destino);
     console.log('Fecha Ida:', this.fechaIda);
     console.log('Fecha Vuelta:', this.fechaVuelta);
+ 
+    if (this.alojamientoRegistrado && this.vueloSeleccionado) {
+      this.totalPrecioPaquete = this.alojamientoRegistrado!!.precio + this.vueloSeleccionado!!.precio;
+    }
 
   }
 
   reservarPaquete(): void {
 
-    if(this.alojamientoRegistrado && this.vueloSeleccionado) {
+    if (this.alojamientoRegistrado && this.vueloSeleccionado) {
+
       var paqueteTuristicoRequest: IPaqueteTuristicoRequest = {
         idPaqueteTuristico: 0,
         precioTotal: 0,
@@ -138,13 +147,18 @@ export class ReservarPaqueteComponent {
       this.paqueteService.insertPaqueteTuristico(paqueteTuristicoRequest).subscribe({
         next: (paqueteTuristicoResponse: IPaqueteTuristicoResponse) => {
           console.log('Paquete Turistico insertado exitosamente: ', paqueteTuristicoResponse);
+          this.paqueteTuristicoRegistrado = paqueteTuristicoResponse;
+          alert("Paquete registrado exitosamente");
+
+          window.location.href = '/home';
         },
         error: (err) => {
           console.error('Error al insertar paquete turistico:', err)
+          alert('Hubo un error al realizar la reserva. Por favor, intenta nuevamente.');
+
         }
       })
-    }    
-
+    }
   }
 
   getImagenCiudad(ciudadNombre: string): string {

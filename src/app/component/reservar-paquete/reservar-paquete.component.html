@@ -1,27 +1,53 @@
 <div class="card-group">
-    <div class="card">
-      <img *ngIf="destino" [src]="ciudadImagenes[destino]" class="card-img-top" alt="Imagen de destino">
-      <div class="card-body">
-        <h5 class="card-title">{{destino}}</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img *ngIf="idHotel" [src]="hotelesImagenes[idHotel]" class="card-img-top" alt="Imagen de destino">
-      <div class="card-body">
-        <h5 class="card-title">Hotel</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://cache.marriott.com/content/dam/marriott-renditions/LIMSI/limsi-room-0487-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=540px:*" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Habitacion</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+  <div class="card">
+    <img *ngIf="destino" [src]="ciudadImagenes[destino]" class="card-img-top" alt="Imagen de destino">
+    <div class="card-body">
+      <h5 class="card-title">{{destino}}</h5>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Aeropuerto Ida: {{vueloSeleccionado?.aeropuertoIda?.nombre}}</li>
+          <li class="list-group-item">Vuelo Ida {{vueloSeleccionado?.fechaHoraIda| date: 'yyyy-MM-dd HH:mm'}}</li>
+          <li class="list-group-item">Aeropuerto Regreso: {{vueloSeleccionado?.aeropuertoRegreso?.nombre}}</li>
+          <li class="list-group-item">Vuelo Regreso {{vueloSeleccionado?.fechaHoraRegreso| date: 'yyyy-MM-dd HH:mm'}}
+          </li>
+          <li class="list-group-item">{{vueloSeleccionado?.precio| currency:'PEN':true}}</li>
+        </ul>
       </div>
     </div>
   </div>
+  <div class="card">
+    <img *ngIf="idHotel" [src]="hotelesImagenes[idHotel]" class="card-img-top" alt="Imagen de destino">
+    <div class="card-body">
+      <h5 class="card-title">Hotel</h5>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Hotel: {{alojamientoRegistrado?.hotel?.nombre}}</li>
+          <li class="list-group-item">Noches: {{alojamientoRegistrado?.noches}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <img
+      src="https://cache.marriott.com/content/dam/marriott-renditions/LIMSI/limsi-room-0487-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=540px:*"
+      class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Habitacion</h5>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{alojamientoRegistrado?.habitacion?.tipoHabitacion}}</li>
+          <li class="list-group-item">{{alojamientoRegistrado?.precio| currency:'PEN':true}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    Precio total: {{totalPrecioPaquete| currency:'PEN':true}}
+  </div>
+</div>
+<div class="d-flex justify-content-center mt-4">
   <button class="save-button" (click)="reservarPaquete()">Reservar Paquete</button>
+</div>
