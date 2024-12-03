@@ -1,5 +1,5 @@
 {
-  "name": "242-cc341-aangular-sigcon-frontend",
+  "name": "242-cc341-aangular-sigepat-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:242CC341AAngularSigconFrontend": "node dist/242-cc341-aangular-sigcon-frontend/server/server.mjs"
+    "serve:ssr:242CC341AAngularSigepatFrontend": "node dist/242-cc341-aangular-sigepat-frontend/server/server.mjs"
   },
   "private": true,
   "dependencies": {

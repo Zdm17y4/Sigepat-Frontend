@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "242CC341AAngularSigconFrontend": {
+    "242CC341AAngularSigepatFrontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/242-cc341-aangular-sigcon-frontend",
+            "outputPath": "dist/242-cc341-aangular-sigepat-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "242CC341AAngularSigconFrontend:build:production"
+              "buildTarget": "242CC341AAngularSigepatFrontend:build:production"
             },
             "development": {
-              "buildTarget": "242CC341AAngularSigconFrontend:build:development"
+              "buildTarget": "242CC341AAngularSigepatFrontend:build:development"
             }
           },
           "defaultConfiguration": "development"
