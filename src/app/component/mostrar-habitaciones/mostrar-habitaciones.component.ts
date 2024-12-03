@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { HotelService } from '../../service/hotel.service';
 import { IHotelResponse } from '../../model/hotel-response';
 import { CommonModule } from '@angular/common'
 import { NgxPaginationModule } from 'ngx-pagination';
-import { IHotelRequest } from '../../model/hotel-request';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { HabitacionService } from '../../service/habitacion.service';
 import { IHabitacionResponse } from '../../model/habitacion-response';
 
@@ -82,5 +80,10 @@ export class MostrarHabitacionesComponent {
       console.log('Habitaciones: ', this.habitacionArray)
     });
   }
+
+    
+    elegirHabitacion(): void {
+      window.location.href = '/mostrar-vuelos';
+    }
 
 }

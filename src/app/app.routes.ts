@@ -6,6 +6,7 @@ import { ReservasComponent } from './component/reservas/reservas.component';
 import { NosotrosComponent } from './component/nosotros/nosotros.component';
 import { MostrarHotelesComponent } from './component/mostrar-hoteles/mostrar-hoteles.component';
 import { MostrarHabitacionesComponent } from './component/mostrar-habitaciones/mostrar-habitaciones.component';
+import { MostrarVuelosComponent } from './component/mostrar-vuelos/mostrar-vuelos.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,6 +15,8 @@ export const routes: Routes = [
   { path: 'paquetes', component: PaquetesComponent },
   { path: 'reservas', component: ReservasComponent },
   { path: 'nosotros', component: NosotrosComponent},
-  {path: "mostrar-hoteles", component: MostrarHotelesComponent},
-  { path: 'mostrar-habitaciones', component: MostrarHabitacionesComponent }
+  { path: "mostrar-hoteles", component: MostrarHotelesComponent},
+  { path: 'mostrar-habitaciones', component: MostrarHabitacionesComponent },
+  { path: 'mostrar-vuelos', component: MostrarVuelosComponent}
+
 ];

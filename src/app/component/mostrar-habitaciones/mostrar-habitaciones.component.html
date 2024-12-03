@@ -33,6 +33,10 @@
                                 <td>{{habitacion.hotel.nombre}}</td> <!-- Mostrar nombre del hotel -->
                                 <td>{{habitacion.tipoHabitacion}}</td>
                                 <td>{{habitacion.precioDia | currency:'PEN':true}}</td> <!-- Mostrar precio con formato de moneda -->
+                                <td>
+                                    <!-- Botón Elegir -->
+                                    <button class="btn btn-primary" (click)="elegirHabitacion()">Elegir</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
