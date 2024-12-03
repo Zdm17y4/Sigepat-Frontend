@@ -59,13 +59,6 @@ export class MostrarHotelesComponent {
     }
   }
 
-  // getHoteles(): void {
-  //   this.hotelService.getHoteles().subscribe((result: any) => {
-  //     //.log('Result', result);
-  //     this.hotelArray = result;
-  //   })
-  // }
-
   // Obtener hoteles por ciudad cuando cambia el campo de búsqueda
   getHotelesPorCiudad(): void {
     const idCiudad = Number(this.ciudadBusqueda.value);

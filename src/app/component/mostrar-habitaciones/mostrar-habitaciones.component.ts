@@ -115,9 +115,9 @@ export class MostrarHabitacionesComponent {
 
       // Llamar al servicio para insertar el alojamiento
       this.alojamientoService.insertAlojamiento(alojamientoRequest).subscribe({
-        next: (response: IAlojamientoResponse) => {
-          console.log('Alojamiento insertado exitosamente:', response);
-          // Aquí podrías redirigir a otra página, mostrar un mensaje de éxito, etc.
+        next: (alojamientoReponse: IAlojamientoResponse) => {
+          console.log('Alojamiento insertado exitosamente:', alojamientoReponse);
+          sessionStorage.setItem('alojamientoRegistrado', JSON.stringify(alojamientoReponse))
         },
         error: (err) => {
           console.error('Error al insertar alojamiento:', err);
@@ -125,10 +125,9 @@ export class MostrarHabitacionesComponent {
         }
       });
 
-
     }
 
-    window.location.href = '/mostrarvuelos';
+    window.location.href = '/mostrar-vuelos';
   }
 
 
