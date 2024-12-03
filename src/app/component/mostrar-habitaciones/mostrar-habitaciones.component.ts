@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 import { IHotelResponse } from '../../model/hotel-response';
 import { CommonModule } from '@angular/common'
 import { NgxPaginationModule } from 'ngx-pagination';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HabitacionService } from '../../service/habitacion.service';
 import { IHabitacionResponse } from '../../model/habitacion-response';
+import { AlojamientoService } from '../../service/alojamiento.service';
+import { IAlojamientoRequest } from '../../model/alojamiento-request';
+import { IAlojamientoResponse } from '../../model/alojamiento-response';
 
 @Component({
   selector: 'app-mostrar-habitaciones',
@@ -27,9 +30,11 @@ export class MostrarHabitacionesComponent {
   habitaciones: string | null = '';
   pasajeros: string | null = '';
 
+  cantidadDias: number = 0;
 
 
-  constructor(private habitacionService: HabitacionService) {}
+
+  constructor(private habitacionService: HabitacionService, private alojamientoService: AlojamientoService) { }
 
   ngOnInit(): void {
 
@@ -54,6 +59,11 @@ export class MostrarHabitacionesComponent {
     console.log('Fecha Vuelta:', this.fechaVuelta);
     console.log('Habitaciones:', this.habitaciones);
     console.log('Pasajeros:', this.pasajeros);
+
+    if (this.fechaIda && this.fechaVuelta) {
+      this.cantidadDias = this.calcularDias(this.fechaIda, this.fechaVuelta);
+      console.log('Cantidad de días:', this.cantidadDias);
+    }
 
     // Recuperar el hotel seleccionado desde sessionStorage
     const hotelData = sessionStorage.getItem('hotelSeleccionado');
@@ -81,9 +91,59 @@ export class MostrarHabitacionesComponent {
     });
   }
 
-    
-    elegirHabitacion(): void {
-      window.location.href = '/mostrar-vuelos';
+
+  elegirHabitacion(habitacion: IHabitacionResponse): void {
+
+    sessionStorage.setItem('habitacionSeleccionada', JSON.stringify(habitacion));
+    sessionStorage.setItem('hotelSeleccionado', JSON.stringify(this.hotelSeleccionado))
+
+    console.log('Habitacion seleccionada', habitacion);
+    console.log('Hotel seleccionado', this.hotelSeleccionado);
+    console.log('Datos guardados en sessionStorage:', sessionStorage.getItem('habitacionSeleccionada'))
+    console.log('Datos guardados en sessionStorage:', sessionStorage.getItem('hotelSeleccionado'))
+
+    if (this.hotelSeleccionado) {
+      var alojamientoRequest: IAlojamientoRequest = {
+        idAlojamiento: 0,
+        precio: 0,
+        cancelable: false,
+        modificable: false,
+        noches: this.cantidadDias,
+        hotel: this.hotelSeleccionado?.idHotel,
+        habitacion: habitacion.idHabitacion
+      }
+
+      // Llamar al servicio para insertar el alojamiento
+      this.alojamientoService.insertAlojamiento(alojamientoRequest).subscribe({
+        next: (response: IAlojamientoResponse) => {
+          console.log('Alojamiento insertado exitosamente:', response);
+          // Aquí podrías redirigir a otra página, mostrar un mensaje de éxito, etc.
+        },
+        error: (err) => {
+          console.error('Error al insertar alojamiento:', err);
+          // Aquí podrías mostrar un mensaje de error al usuario
+        }
+      });
+
+
     }
+
+    window.location.href = '/mostrarvuelos';
+  }
+
+
+  // Método para calcular la diferencia en días entre dos fechas
+  calcularDias(fechaIda: string, fechaVuelta: string): number {
+    const fechaIdaDate = new Date(fechaIda); // Convertir a objeto Date
+    const fechaVueltaDate = new Date(fechaVuelta); // Convertir a objeto Date
+
+    // Calcular la diferencia en milisegundos
+    const diferencia = fechaVueltaDate.getTime() - fechaIdaDate.getTime();
+
+    // Convertir la diferencia a días (1 día = 24 horas * 60 minutos * 60 segundos * 1000 milisegundos)
+    const cantidadDias = diferencia / (1000 * 3600 * 24);
+
+    return cantidadDias;
+  }
 
 }

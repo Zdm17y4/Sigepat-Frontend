@@ -1,55 +1,55 @@
 {
-  "hash": "93443eaf",
+  "hash": "b8f4e7b9",
   "configHash": "893e5896",
-  "lockfileHash": "aedf7ab1",
-  "browserHash": "a4e41626",
+  "lockfileHash": "91bd6052",
+  "browserHash": "1dfcea0e",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "e1398b42",
+      "fileHash": "4945e92b",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "a5dba23b",
+      "fileHash": "3f914702",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "77b55cd6",
+      "fileHash": "9feb2877",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "39868f68",
+      "fileHash": "e066d2b0",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "14ba84c8",
+      "fileHash": "ba64721e",
       "needsInterop": false
     },
     "@angular/platform-server": {
       "src": "../../../../../../node_modules/@angular/platform-server/fesm2022/platform-server.mjs",
       "file": "@angular_platform-server.js",
-      "fileHash": "a8c918fd",
+      "fileHash": "f045cea3",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "b42771e4",
+      "fileHash": "46cf62af",
       "needsInterop": false
     },
     "ngx-pagination": {
       "src": "../../../../../../node_modules/ngx-pagination/fesm2015/ngx-pagination.mjs",
       "file": "ngx-pagination.js",
-      "fileHash": "84b74c2d",
+      "fileHash": "88d1581e",
       "needsInterop": false
     }
   },

@@ -38,8 +38,8 @@
                                 <td>{{vuelo.aerolinea.nombre}}</td>
                                 <td>{{vuelo.fechaHoraIda | date: 'yyyy-MM-dd HH:mm'}}</td> <!-- Formato de fecha y hora -->
                                 <td>{{vuelo.fechaHoraRegreso | date: 'yyyy-MM-dd HH:mm'}}</td> <!-- Formato de fecha y hora -->
-                                <td>{{vuelo.ciudadOrigen.nombre}}</td>
-                                <td>{{vuelo.ciudadDestino.nombre}}</td>
+                                <td>{{vuelo.aeropuertoIda.ciudad.nombre}}</td>
+                                <td>{{vuelo.aeropuertoRegreso.ciudad.nombre}}</td>
                                 <td>
                                     <!-- Botón Elegir vuelo -->
                                     <button class="btn btn-primary" (click)="elegirVuelo()">Elegir</button>

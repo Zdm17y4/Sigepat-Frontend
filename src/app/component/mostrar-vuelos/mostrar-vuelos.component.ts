@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { IVueloResponse } from '../../model/vuelo-response';
+import { IHotelResponse } from '../../model/hotel-response';
 import { VueloService } from '../../service/vuelo.service';
+import { IHabitacionResponse } from '../../model/habitacion-response';
 
 @Component({
   selector: 'app-mostrar-vuelos',
@@ -17,6 +19,8 @@ export class MostrarVuelosComponent {
   title = 'Vuelos'
   page: number = 1;
   vuelosArray: IVueloResponse[] = [];
+  hotelSeleccionado: IHotelResponse | null = null;
+  habitacionSeleccionada: IHabitacionResponse | null = null;
 
   origen: string | null = '';
   destino: string | null = '';

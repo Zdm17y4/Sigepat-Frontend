@@ -1,4 +1,5 @@
-import { ICiudad } from "./ciudad";
+import { IHabitacionResponse } from "./habitacion-response";
+import { IHotelResponse } from "./hotel-response";
 
 export interface IAlojamientoResponse {
 
@@ -7,7 +8,7 @@ export interface IAlojamientoResponse {
     cancelable: boolean;
     modificable: boolean;
     noches: number;
-    hotel: number;
-    habitacion: number;
+    hotel: IHotelResponse;
+    habitacion: IHabitacionResponse;
 }
 
