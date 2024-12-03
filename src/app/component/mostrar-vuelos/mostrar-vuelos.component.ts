@@ -49,8 +49,6 @@ export class MostrarVuelosComponent {
     this.destino = sessionStorage.getItem('destino');
     this.fechaIda = sessionStorage.getItem('fechaIda');
     this.fechaVuelta = sessionStorage.getItem('fechaVuelta');
-    this.habitaciones = sessionStorage.getItem('habitaciones');
-    this.pasajeros = sessionStorage.getItem('pasajeros');
 
     const alojamientoData = sessionStorage.getItem('alojamientoRegistrado');
     if (alojamientoData) {
@@ -70,8 +68,6 @@ export class MostrarVuelosComponent {
     console.log('Destino:', this.destino);
     console.log('Fecha Ida:', this.fechaIda);
     console.log('Fecha Vuelta:', this.fechaVuelta);
-    console.log('Habitaciones:', this.habitaciones);
-    console.log('Pasajeros:', this.pasajeros);
 
     const ciudadOrigen = Number(this.origen);
     const ciudadDestino = Number(this.destino);

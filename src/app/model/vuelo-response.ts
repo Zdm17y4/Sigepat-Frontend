@@ -5,6 +5,7 @@ import {IAerolinea} from "./aerolinea"
 export interface IVueloResponse {
 
     idVuelo: number;
+    precio: number;
     fechaHoraIda: string;
     fechaHoraRegreso: string;
     ciudadOrigen: ICiudad;

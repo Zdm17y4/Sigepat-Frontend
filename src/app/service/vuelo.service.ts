@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { BASE_URL } from '../utils/constants';
-import { IHabitacionResponse } from '../model/habitacion-response';
-import { IHabitacionRequest } from '../model/habitacion-request';
-import { IHotelRequest } from '../model/hotel-request';
 import { IVueloResponse } from '../model/vuelo-response';
 
 @Injectable({

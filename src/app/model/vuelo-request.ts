@@ -1,6 +1,7 @@
 export interface IVueloRequest {
 
     idVuelo: number;
+    precio: number;
     fechaHoraIda: string;
     fechaHoraRegreso: string;
     cuidadOrigen: string;

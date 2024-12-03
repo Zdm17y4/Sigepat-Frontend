@@ -17,15 +17,14 @@ export class PaquetesComponent implements OnInit {
   ciudades: ICiudad[] = []
   errorMessage: string = ''
 
+
   constructor(private formBuilder: FormBuilder, private ciudadService: CiudadService) {
 
     this.paquetesForm = this.formBuilder.group({
       origen: ['', Validators.required],
       destino: ['', Validators.required],
       fechaIda: ['', Validators.required],
-      fechaVuelta: [''],
-      habitaciones: [1, [Validators.required, Validators.min(1)]],
-      pasajeros: [1, [Validators.required, Validators.min(1)]],
+      fechaVuelta: ['', Validators.required],
     });
   }
 
@@ -55,8 +54,6 @@ export class PaquetesComponent implements OnInit {
       sessionStorage.setItem('destino', this.paquetesForm.value.destino);
       sessionStorage.setItem('fechaIda', this.paquetesForm.value.fechaIda);
       sessionStorage.setItem('fechaVuelta', this.paquetesForm.value.fechaVuelta);
-      sessionStorage.setItem('habitaciones', String(this.paquetesForm.value.habitaciones));
-      sessionStorage.setItem('pasajeros', String(this.paquetesForm.value.pasajeros));
 
       // Verificar que los datos se guardaron correctamente
       console.log('Datos guardados en sessionStorage:');
@@ -64,8 +61,6 @@ export class PaquetesComponent implements OnInit {
       console.log('Destino:', sessionStorage.getItem('destino'));
       console.log('Fecha Ida:', sessionStorage.getItem('fechaIda'));
       console.log('Fecha Vuelta:', sessionStorage.getItem('fechaVuelta'));
-      console.log('Habitaciones:', sessionStorage.getItem('habitaciones'));
-      console.log('Pasajeros:', sessionStorage.getItem('pasajeros'));
 
       // Redirigir a la página de mostrar-hoteles
       window.location.href = '/mostrar-hoteles';
